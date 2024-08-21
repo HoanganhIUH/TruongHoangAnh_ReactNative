@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calculateAverage(scores) {
+            const sum = scores.reduce((acc, score) => acc + score, 0);
+            return sum / scores.length;
+        }
+
+
+        function determineWinner(dolphinsScores, koalasScores) {
+            const dolphinsAverage = calculateAverage(dolphinsScores);
+            const koalasAverage = calculateAverage(koalasScores);
+
+            console.log(`Dolphins Average Score: ${dolphinsAverage}`);
+            console.log(`Koalas Average Score: ${koalasAverage}`);
+
+
+            if (dolphinsAverage > koalasAverage) {
+                console.log('Dolphins win!');
+            } else if (koalasAverage > dolphinsAverage) {
+                console.log('Koalas win!');
+            } else {
+                console.log('It\'s a draw!');
+            }
+        }
+
+
+        function determineWinnerWithMinimumScore(dolphinsScores, koalasScores) {
+            const dolphinsAverage = calculateAverage(dolphinsScores);
+            const koalasAverage = calculateAverage(koalasScores);
+
+            if (dolphinsAverage >= 100 && dolphinsAverage > koalasAverage) {
+                console.log('Dolphins win!');
+            } else if (koalasAverage >= 100 && koalasAverage > dolphinsAverage) {
+                console.log('Koalas win!');
+            } else {
+                console.log('No team wins!');
+            }
+        }
+
+
+        function determineWinnerWithMinimumScoreForDraw(dolphinsScores, koalasScores) {
+            const dolphinsAverage = calculateAverage(dolphinsScores);
+            const koalasAverage = calculateAverage(koalasScores);
+
+            if (dolphinsAverage === koalasAverage && dolphinsAverage >= 100) {
+                console.log('It\'s a draw!');
+            } else {
+                console.log('No team wins!');
+            }
+        }
+
+
+        const dolphinsScores1 = [96, 108, 89];
+        const koalasScores1 = [88, 91, 110];
+
+        const dolphinsScoresBonus1 = [97, 112, 101];
+        const koalasScoresBonus1 = [109, 95, 123];
+
+        const dolphinsScoresBonus2 = [97, 112, 101];
+        const koalasScoresBonus2 = [109, 95, 106];
+
+        console.log('Test Data 1:');
+        determineWinner(dolphinsScores1, koalasScores1);
+        console.log('Bonus 1:');
+        determineWinnerWithMinimumScore(dolphinsScoresBonus1, koalasScoresBonus1);
+        console.log('Bonus 2:');
+        determineWinnerWithMinimumScoreForDraw(dolphinsScoresBonus2, koalasScoresBonus2);
+    </script>
+</body>
+
+</html>
