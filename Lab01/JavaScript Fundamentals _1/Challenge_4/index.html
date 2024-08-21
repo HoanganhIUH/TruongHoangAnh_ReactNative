@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calculateTip(bill) {
+            const tip = (bill >= 50 && bill <= 300) ? (bill * 0.15) : (bill * 0.20);
+            const totalValue = bill + tip;
+            console.log(`The bill was ${bill}, the tip was ${tip.toFixed(2)}, and the total value ${totalValue.toFixed(2)}`);
+        }
+        const bills = [275, 40, 430];
+        bills.forEach(bill => calculateTip(bill));
+    </script>
+</body>
+
+</html>
