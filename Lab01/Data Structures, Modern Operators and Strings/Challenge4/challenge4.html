@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="inputText" rows="10" cols="30"></textarea>
+    <button onclick="convertText()">Convert</button>
+    <pre id="output"></pre>
+</body>
+<script>
+    const convertText = () => {
+        const valueText = document.getElementById("inputText").value;
+        const varNames = valueText.split("\n");
+        console.log(varNames);
+        const toCamel = varNames.map((name) => {
+          return name
+            .trim()
+            .toLowerCase()
+            .replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+        });
+        document.getElementById("output").textContent = toCamel.join("\n");
+      };
+</script>
+</html>
